@@ -2,13 +2,14 @@
 
 #include "sieve.h"
 
-#define SIEVE_INIT sieve_int
-#define SIEVE_CHECK sieve_check_int
-#define SIEVE_FREE sieve_free_int
-#define TYPE int*
+#define SIEVE_INIT sieve_bit
+#define SIEVE_CHECK sieve_check_bit
+#define SIEVE_FREE sieve_free_bit
+#define TYPE int *
 
-int main() {
+int main(int argc, char **argv) {
     int N = 100, i;
+    if (argc == 2) N = atoi(argv[1]);
 
     TYPE sieve = SIEVE_INIT(N);
 
