@@ -46,3 +46,26 @@ void bst_free(bst_node node) {
     bst_free(node->left);
     free(node);
 }
+
+void bst_traversal(bst_node node, void (*visit)(bst_node node)) { visit(node); }
+
+void rec_pre_order_traversal(bst_node node) {
+    if (node == NULL) return;
+    printf("%d ", node->key);
+    rec_pre_order_traversal(node->left);
+    rec_pre_order_traversal(node->right);
+}
+
+void rec_in_order_traversal(bst_node node) {
+    if (node == NULL) return;
+    rec_in_order_traversal(node->left);
+    printf("%d ", node->key);
+    rec_in_order_traversal(node->right);
+}
+
+void rec_post_order_traversal(bst_node node) {
+    if (node == NULL) return;
+    rec_post_order_traversal(node->left);
+    rec_post_order_traversal(node->right);
+    printf("%d ", node->key);
+}
